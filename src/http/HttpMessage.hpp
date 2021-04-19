@@ -1,16 +1,23 @@
 #ifndef HTTPMESSAGE
 #define HTTPMESSAGE
 
+#include <string>
+#include <iostream>
+#include <map>
+#include <sstream>
+using namespace std;
+
 class HttpMessage{
     
-    private:
-        const char* port;
-
     public:
         HttpMessage();
-        void start(int argc, char const *argv[]);
+        void getHeaderValue(string key);
     
     protected:
+        string httpVersion;
+        map<string, string> header;
+        stringstream body;
+
         void analyzeArguments();
         void handleClientConnection();
 

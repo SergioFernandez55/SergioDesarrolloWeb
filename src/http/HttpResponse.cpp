@@ -1,23 +1,17 @@
 #include "HttpResponse.hpp"
 
+
+
 HttpResponse::HttpResponse(){
 
 }
 
-   void HttpResponse::start(int argc, char const *argv[]){
-        //upon start port gets its info from the arguments
-        port = argv[0];
-        while(true){
-            
-        }
+void setStatusCode(int code, string reason){
 
-    }   
+}
+void addHeader(string key,  string value){
 
-
-    void HttpResponse::analyzeArguments(){
-
-    }
-
-    void HttpResponse::handleClientConnection(){
-
-    }
+}
+void send(Socket& socket){
+    
+}

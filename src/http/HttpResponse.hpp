@@ -1,19 +1,23 @@
 #ifndef HTTPRESPONSE
 #define HTTPRESPONSE
 
-
-class HttpResponse{
+#include "Socket.hpp"
+#include "HttpMessage.hpp"
+class HttpResponse:HttpMessage{
     
     private:
         const char* port;
 
     public:
         HttpResponse();
-        void start(int argc, char const *argv[]);
+        void setStatusCode(int code, string reason);
+        void addHeader(string key,  string value);
+        void send(Socket& socket);
     
     protected:
-        void analyzeArguments();
-        void handleClientConnection();
+        int statusCode;
+        string reason;
+
 
 };
 

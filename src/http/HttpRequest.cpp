@@ -4,20 +4,9 @@ HttpRequest::HttpRequest(){
 
 }
 
-    void HttpRequest::start(int argc, char const *argv[]){
-        //upon start port gets its info from the arguments
-        port = argv[0];
-        while(true){
-            
-        }
+void load(Socket socket){
 
-    }   
-
-
-    void HttpRequest::analyzeArguments(){
-
-    }
-
-    void HttpRequest::handleClientConnection(){
-
-    }
+}
+const string& getUri(){
+    
+}

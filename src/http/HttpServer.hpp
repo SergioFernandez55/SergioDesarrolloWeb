@@ -2,6 +2,7 @@
 #define HTTPSERVER
 
 #include "TcpServer.hpp"
+#include "HttpConnectionHandler.hpp"
 #include <thread>
 
 class HttpServer:TcpServer{

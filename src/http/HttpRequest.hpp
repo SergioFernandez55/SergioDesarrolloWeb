@@ -1,20 +1,33 @@
 #ifndef HTTPREQUEST
 #define HTTPREQUEST
 
+#include "HttpMessage.hpp"
+#include "Socket.hpp"
+     enum Method{
+         GET,
+         HEAD,
+         POST,
+         PUT,
+         DELETE,
+         CONNECT,
+         OPTIONS,
+         TRACE,
+         PATCH
+     };
 
-
-class HttpRequest{
+class HttpRequest:HttpMessage{
     
     private:
         const char* port;
 
     public:
         HttpRequest();
-        void start(int argc, char const *argv[]);
+        void load(Socket socket);
+        const string& getUri();
     
     protected:
-        void analyzeArguments();
-        void handleClientConnection();
+        Method method;
+        string uri;
 
 };
 
