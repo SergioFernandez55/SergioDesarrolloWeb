@@ -11,6 +11,7 @@ class HttpServer:TcpServer{
 
     public:
         HttpServer();
+        ~HttpServer();
         void start(int argc, char const *argv[]);
         void handleClientConnection(Socket& client);
     

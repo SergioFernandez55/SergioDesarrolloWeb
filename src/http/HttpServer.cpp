@@ -1,10 +1,13 @@
-#include "HttpServer.h"
+#include "HttpServer.hpp"
 
 
 HttpServer::HttpServer(){
 
 }
 
+HttpServer::~HttpServer(){
+
+}
 
 void HttpServer::start(int argc, char const *argv[]){
     //upon start port gets its info from the arguments
@@ -13,8 +16,8 @@ void HttpServer::start(int argc, char const *argv[]){
     this -> listenForever(port);
 }
 
-void handleClientConnection(Socket& client){
-    
+void HttpServer::handleClientConnection(Socket& client){
+
 }
 
 void HttpServer::analyzeArguments(){
