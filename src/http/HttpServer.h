@@ -2,20 +2,25 @@
 #define HTTPSERVER
 
 #include "TcpServer.hpp"
+#include <thread>
 
-class HttpServer::TcpServer{
+class HttpServer:TcpServer{
     
     private:
         const char* port;
 
     public:
-        start(int argc, char const *argv[]);
+        HttpServer();
+        void start(int argc, char const *argv[]);
+        void handleClientConnection(Socket& client);
     
     protected:
-        analyzeArguments();
-        handleClientConnection();
+        void analyzeArguments();
+        void handleClientConnection();
 
-}
+};
+
+
 
 
 #endif

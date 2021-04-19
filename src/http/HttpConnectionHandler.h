@@ -5,8 +5,11 @@
 
 class HttpConnectionHandler::Thread{
     
+    public:
+        HttpConnectionHandler();
+        void StartConnection();
+        void handleHttpRequest(HttpRequest request, HttpResponse response);
 
-
-}
+};
 
 #endif

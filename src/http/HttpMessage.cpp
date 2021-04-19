@@ -4,8 +4,7 @@ HttpMessage::HttpMessage(){
 
 }
 
-public:
-    void start::HttpMessage(int argc, char const *argv[]){
+    void HttpMessage::start(int argc, char const *argv[]){
         //upon start port gets its info from the arguments
         port = argv[0];
         while(true){
@@ -14,12 +13,11 @@ public:
 
     }   
 
-protected:
 
-    void analyzeArguments::HttpMessage(){
+    void HttpMessage::analyzeArguments(){
 
     }
 
-    handleClientConnection::HttpMessage(){
+    void HttpMessage::handleClientConnection(){
 
     }

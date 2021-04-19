@@ -10,7 +10,7 @@
 #include <stdexcept>
 #include <vector>
 
-#include "Log.hpp"
+//#include "Log.hpp"
 #include "NetworkAddress.hpp"
 #include "Socket.hpp"
 
@@ -50,8 +50,8 @@ struct SharedSocket {
       ::close(this->socketFileDescriptor);
 
       const NetworkAddress& address = this->getNetworkAddress();
-      Log::append(Log::INFO, "socket", std::string("connection -----closed with peer ")
-        + address.getIP() + " port " + std::to_string(address.getPort()));
+      //Log::append(Log::INFO, "socket", std::string("connection -----closed with peer ")
+        //+ address.getIP() + " port " + std::to_string(address.getPort()));
 
       ::memset(&this->peerAddress, 0, sizeof(this->peerAddress));
       this->socketFileDescriptor = -1;

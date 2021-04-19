@@ -1,19 +1,22 @@
 #ifndef HTTPREQUEST
 #define HTTPREQUEST
 
+
+
 class HttpRequest{
     
     private:
         const char* port;
 
     public:
-        start(int argc, char const *argv[]);
+        HttpRequest();
+        void start(int argc, char const *argv[]);
     
     protected:
-        analyzeArguments();
-        handleClientConnection();
+        void analyzeArguments();
+        void handleClientConnection();
 
-}
+};
 
 
 #endif

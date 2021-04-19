@@ -4,8 +4,7 @@ HttpResponse::HttpResponse(){
 
 }
 
-public:
-    void start::HttpResponse(int argc, char const *argv[]){
+   void HttpResponse::start(int argc, char const *argv[]){
         //upon start port gets its info from the arguments
         port = argv[0];
         while(true){
@@ -14,12 +13,11 @@ public:
 
     }   
 
-protected:
 
-    void analyzeArguments::HttpResponse(){
+    void HttpResponse::analyzeArguments(){
 
     }
 
-    handleClientConnection::HttpResponse(){
+    void HttpResponse::handleClientConnection(){
 
     }

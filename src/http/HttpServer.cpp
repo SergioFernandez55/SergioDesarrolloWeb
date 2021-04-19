@@ -1,23 +1,25 @@
 #include "HttpServer.h"
 
+
 HttpServer::HttpServer(){
 
 }
 
-public:
-void start(int argc, char const *argv[]){
+
+void HttpServer::start(int argc, char const *argv[]){
     //upon start port gets its info from the arguments
     port = argv[0];
-    while(true){
-        
-    }
 
+    this -> listenForever(port);
 }
 
-protected:
-    void analyzeArguments(){
+void handleClientConnection(Socket& client){
+    
+}
+
+void HttpServer::analyzeArguments(){
 
 }
-handleClientConnection(){
+void HttpServer::handleClientConnection(){
 
-    }
+}
