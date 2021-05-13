@@ -14,11 +14,10 @@ class HttpServer:TcpServer{
         HttpServer();
         ~HttpServer();
         void start(int argc, char const *argv[]);
-        void handleClientConnection(Socket& client);
+        void handleClientConnection(Socket& client) override;
     
     protected:
         void analyzeArguments();
-        void handleClientConnection();
 
 };
 

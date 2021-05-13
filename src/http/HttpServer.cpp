@@ -1,5 +1,5 @@
 #include "HttpServer.hpp"
-
+#include <iostream>
 
 HttpServer::HttpServer(){
 
@@ -11,11 +11,14 @@ HttpServer::~HttpServer(){
 
 void HttpServer::start(int argc, char const *argv[]){
     //upon start port gets its info from the arguments
-    port = argv[0];
+    if(argc == 2){
+        port = argv[1];
+        this -> listenForever(port);
+    }
+    else{
+        std::cerr << "usage: httpserver PORT" << std::endl;
+    }
 
-
-
-    this -> listenForever(port);
     
 }
 
@@ -27,6 +30,4 @@ void HttpServer::handleClientConnection(Socket& client){
 void HttpServer::analyzeArguments(){
 
 }
-void HttpServer::handleClientConnection(){
 
-}
