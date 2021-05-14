@@ -13,6 +13,9 @@ class HttpConnectionHandler:Thread{
         void StartConnection();
         void handleHttpRequest(HttpRequest request, HttpResponse response);
         int run();
+    
+    private:
+        Socket clientSocket;
 
 };
 
