@@ -1,17 +1,18 @@
 #include "HttpResponse.hpp"
-HttpResponse::HttpResponse(){
-
+HttpResponse::HttpResponse()
+{
 }
 
-void setStatusCode(int code, string reason){
-
+void HttpResponse::setStatusCode(int code, string reason)
+{
 }
-void addHeader(string key,  string value){
-
+void HttpResponse::addHeader(string key, string value)
+{
 }
 
-void send(Socket& client){
-    const char* const SERVER_NAME = "ToBeNamed";
+void HttpResponse::send(Socket &client)
+{
+    const char *const SERVER_NAME = "ToBeNamed";
     std::ostringstream message;
     message << "<!DOCTYPE html><html lang=\"en\"><meta charset=\"ascii\"/>";
     message << "<title>Hi!</title><h1>Welcome!</h1>";

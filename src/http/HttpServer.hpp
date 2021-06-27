@@ -3,33 +3,38 @@
 
 #include "TcpServer.hpp"
 #include "HttpConnectionHandler.hpp"
+#include "Thread.hpp"
 #include <thread>
 
-class HttpServer:TcpServer{
+class HttpServer : TcpServer
+{
     DISABLE_COPY(HttpServer);
-    
-    private:
-        const char* port;
 
-    public:
-        HttpServer() = default;
-        ~HttpServer() = default;
+private:
+    const char *port;
+    int numberThreads;
 
-        static HttpServer& getInstance(){
-            static HttpServer server;
-            return server;
-        }
+public:
+    HttpServer() = default;
+    ~HttpServer() = default;
 
-        void stop(){
-            std::cout << "Server stopped" << std::endl;
-            this->stopListening();
-        }
+    //dejar implementacion de metodos en cpp
+    static HttpServer &getInstance()
+    {
+        static HttpServer server;
+        return server;
+    }
 
-        void start(int argc, char const *argv[]);
-        void handleClientConnection(Socket& client) override;
+    void stop()
+    {
+        std::cout << "Server stopped" << std::endl;
+        this->stopListening();
+    }
 
-    protected:
-        void analyzeArguments();
+    void start(int argc, char const *argv[]);
+    void handleClientConnection(Socket &client) override;
 
+protected:
+    void analyzeArguments();
 };
 #endif

@@ -1,30 +1,26 @@
 #include "HttpServer.hpp"
 #include "TcpServer.hpp"
 
-
-void handleSignal(int signal) {
-    try{
+void handleSignal(int signal)
+{
+    try
+    {
         HttpServer::getInstance().stop();
-    } catch (std::runtime_error& error){
-
+    }
+    catch (std::runtime_error &error)
+    {
+        //agregar mensaje de error
     }
 }
 
-void randomPrint(string toPrint) 
+int main(int argc, char const *argv[])
 {
-        std::cout<< toPrint << std::endl;
-}
 
-
-
-int main(int argc, char const *argv[]) {
-    std::thread tr (randomPrint, "Correct");
-
-    tr.join();
     //HttpServer *server = new HttpServer();
     //server -> start(argc, argv);
     //delete server;
-    if(argc >= 2){
+    if (argc >= 2)
+    {
         HttpServer::getInstance().start(argc, argv);
     }
     return 0;
