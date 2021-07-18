@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ViewNoteComponent } from 'src/app/components/view-note/view-note.component';
 import { NotesService } from 'src/app/services/notes.service';
 import { Note } from 'src/app/types/models';
 
@@ -10,7 +12,7 @@ import { Note } from 'src/app/types/models';
 export class ListPage implements OnInit {
   notes: Note[] = [];
 
-  constructor(private noteService: NotesService) {}
+  constructor(private noteService: NotesService, public modalController: ModalController) {}
 
   ngOnInit() {
     //Sacamos las notas del servicio de notas
@@ -18,4 +20,14 @@ export class ListPage implements OnInit {
     console.log(this.notes);
   }
 
+  async viewNote(noteId: number) {
+    console.log('note: ' + noteId);
+    const modal = await this.modalController.create({
+      component: ViewNoteComponent,
+      componentProps: {
+        noteId
+      }
+    });
+    return await modal.present();
+  }
 }
