@@ -1,19 +1,13 @@
 import { Injectable } from '@angular/core';
 import * as faker from 'faker';
-
-export interface Note {
-  id: number;
-  title: string;
-  content: string;
-  createDate: string;
-  image: string;
-}
+import { Note } from '../types/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
   notes: Note[];
+  currentNote: number;
   constructor() {
     this.notes = this.generateRandomData(10);
   }
@@ -22,6 +16,7 @@ export class NotesService {
     const notes: Note[] = [];
 
     for(let index = 0; index < quantity; index++) {
+      // https://www.npmjs.com/package/faker
       const newNote: Note = {
         id: index + 1,
         title: faker.commerce.productName(),
@@ -49,5 +44,20 @@ export class NotesService {
       createDate: new Date().toISOString()
     };
     this.notes.push(newNote);
+  }
+
+  editNote(title: string, content: string, image: string, noteId: number){
+    this.notes[noteId-1].content = content;
+    this.notes[noteId-1].title = title;
+    this.notes[noteId-1].image = image;
+  }
+
+  deleteNote(noteId: number){
+    if (noteId-1 > -1) {
+      this.notes.splice(noteId-1, 1);
+    }
+    for (let i = 0; i < this.notes.length; i++) {
+      this.notes[i].id = i+1;
+    }
   }
 }

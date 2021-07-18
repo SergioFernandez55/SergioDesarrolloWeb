@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ViewNoteComponent } from 'src/app/components/view-note/view-note.component';
 import { NotesService } from 'src/app/services/notes.service';
@@ -12,7 +13,10 @@ import { Note } from 'src/app/types/models';
 export class ListPage implements OnInit {
   notes: Note[] = [];
 
-  constructor(private noteService: NotesService, public modalController: ModalController) {}
+  constructor(
+    private noteService: NotesService,
+    public modalController: ModalController,
+    private router: Router) {}
 
   ngOnInit() {
     //Sacamos las notas del servicio de notas
@@ -29,5 +33,14 @@ export class ListPage implements OnInit {
       }
     });
     return await modal.present();
+  }
+
+  goToEdit(noteId: number) {
+    this.noteService.currentNote = noteId;
+    this.router.navigate(['/edit']);
+  }
+
+  deleteNote(nodeId: number){
+    this.noteService.deleteNote(nodeId);
   }
 }
