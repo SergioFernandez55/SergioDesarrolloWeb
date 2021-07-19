@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ListPageRoutingModule } from './list-routing.module';
 
 import { ListPage } from './list.page';
+import { FloatingMenuComponent } from 'src/app/components/floating-menu/floating-menu.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListPageRoutingModule
+    ListPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ListPage]
 })
