@@ -10,14 +10,14 @@ class HttpConnectionHandler : Thread
 {
 
 public:
-    HttpConnectionHandler();
-    void StartConnection();
-    void handleHttpRequest(HttpRequest *request, HttpResponse *response);
-    int run() override;
-    void setSocket(Socket &client);
+	HttpConnectionHandler();
+	void StartConnection();
+	void handleHttpRequest(HttpRequest *request, HttpResponse *response);
+	int run() override;
+	void setSocket(Socket &client);
 
 private:
-    Socket clientSocket;
+	Socket clientSocket;
 };
 
 #endif

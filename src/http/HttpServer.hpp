@@ -8,33 +8,25 @@
 
 class HttpServer : TcpServer
 {
-    DISABLE_COPY(HttpServer);
+	DISABLE_COPY(HttpServer);
 
 private:
-    const char *port;
-    int numberThreads;
+	const char *port;
+	int numberThreads;
 
 public:
-    HttpServer() = default;
-    ~HttpServer() = default;
+	HttpServer() = default;
+	~HttpServer() = default;
 
-    //dejar implementacion de metodos en cpp
-    static HttpServer &getInstance()
-    {
-        static HttpServer server;
-        return server;
-    }
+	//dejar implementacion de metodos en cpp
+	static HttpServer &getInstance();
 
-    void stop()
-    {
-        std::cout << "Server stopped" << std::endl;
-        this->stopListening();
-    }
+	void stop();
 
-    void start(int argc, char const *argv[]);
-    void handleClientConnection(Socket &client) override;
+	void start(int argc, char const *argv[]);
+	void handleClientConnection(Socket &client) override;
 
 protected:
-    void analyzeArguments();
+	void analyzeArguments();
 };
 #endif

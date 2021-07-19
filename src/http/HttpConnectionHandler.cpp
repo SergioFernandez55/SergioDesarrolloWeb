@@ -7,24 +7,25 @@ HttpConnectionHandler::HttpConnectionHandler()
 
 void HttpConnectionHandler::StartConnection()
 {
-    this->startThread();
+	this->startThread();
 }
 
 void HttpConnectionHandler::handleHttpRequest(HttpRequest *request, HttpResponse *response)
 {
-    request->load(clientSocket);
-    response->send(clientSocket);
+	request->load(clientSocket);
+	//Llamar codigo de aplicacion
+	response->send(clientSocket);
 }
 
 int HttpConnectionHandler::run()
 {
-    HttpRequest *request = new HttpRequest();
-    HttpResponse *response = new HttpResponse();
-    this->handleHttpRequest(request, response);
-    return 0;
+	HttpRequest *request = new HttpRequest();
+	HttpResponse *response = new HttpResponse();
+	this->handleHttpRequest(request, response);
+	return 0;
 }
 
 void HttpConnectionHandler::setSocket(Socket &client)
 {
-    this->clientSocket = client;
+	this->clientSocket = client;
 }

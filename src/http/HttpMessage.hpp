@@ -5,23 +5,23 @@
 #include <iostream>
 #include <map>
 #include <sstream>
-using namespace std;
+//using namespace std;
 
-class HttpMessage{
-    
-    public:
-        HttpMessage();
-        void getHeaderValue(string key);
-    
-    protected:
-        string httpVersion;
-        map<string, string> header;
-        stringstream body;
+class HttpMessage
+{
 
-        void analyzeArguments();
-        void handleClientConnection();
+public:
+	HttpMessage();
+	void getHeaderValue(std::string key);
+	void setBody(std::string newBody);
 
+protected:
+	std::string httpVersion;
+	std::map<std::string, std::string> header;
+	std::stringstream body;
+
+	void analyzeArguments();
+	void handleClientConnection();
 };
-
 
 #endif

@@ -1,21 +1,22 @@
 #include "HttpMessage.hpp"
 
-HttpMessage::HttpMessage(){
-
+HttpMessage::HttpMessage()
+{
 }
 
-void HttpMessage::getHeaderValue(string key){
-
+void HttpMessage::getHeaderValue(std::string key)
+{
 }
 
-void HttpMessage::analyzeArguments(){
-
-
-
+void HttpMessage::analyzeArguments()
+{
 }
 
-void HttpMessage::handleClientConnection(){
+void HttpMessage::handleClientConnection()
+{
+}
 
-
-
+void HttpMessage::setBody(std::string newBody)
+{
+	body << newBody;
 }
